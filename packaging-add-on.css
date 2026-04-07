@@ -1,0 +1,179 @@
+
+<style>
+.conditional-product-wrapper {
+  margin: 20px 0;
+}
+
+.conditional-product-checkbox{ width:fit-content;}
+
+.conditional-product-checkbox label {
+  display: flex !important;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  user-select: none;
+  padding:3px 14px 3px 8px !important;
+}
+.conditional-product-checkbox span { font-size:16px; font-weight:600;}
+
+.conditional-product-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#packaging-variant-selector {
+  margin-top: 15px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.packaging-product-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.packaging-main-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.packaging-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.custom-variant-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.selected-variant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 60px;
+}
+
+.selected-variant:hover {
+  border-color: #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.selected-variant .placeholder-text {
+  color: #000;
+  font-size: 14px;
+  font-weight:600;
+}
+
+.selected-variant .variant-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.selected-variant .variant-title {
+  flex: 1;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000;
+}
+
+.selected-variant .variant-price {
+  font-weight: 600;
+  color:rgb(0, 0, 0);
+  font-size: 15px;
+}
+
+.variant-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 5px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.variant-options.open {
+  max-height: 400px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.variant-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.variant-option:last-child {
+  border-bottom: none;
+}
+
+.variant-option:hover {
+  background: #f5f5f5;
+}
+
+.variant-option.selected {
+  background: #e8f5e9;
+}
+
+.variant-option .variant-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.variant-option .variant-title {
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.variant-option .variant-price {
+  font-weight: 600;
+  color:rgb(0, 0, 0);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
