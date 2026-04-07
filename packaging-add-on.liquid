@@ -1,0 +1,57 @@
+<!-- Packaging-add-on-code -->
+{% unless product.collections contains collections['collection-1'] %}
+<div class="conditional-product-wrapper">
+  <div class="conditional-product-checkbox">
+    <label>
+      <input 
+        type="checkbox" 
+        id="add-bonus-product"
+      >
+      <span>Add Premium Packaging </span>
+    </label>
+  </div>
+  
+  {% if product.collections contains collections['collection-2'] %}
+    {% assign premium_product = all_products['premium-product'] %}
+  {% endif %}
+  
+  {% if premium_product %}
+  <div id="packaging-variant-selector" style="display: none;">
+    <div class="packaging-product-info">
+      {% if premium_product.featured_image %}
+        <img src="{{ premium_product.featured_image | img_url: '80x80' }}" alt="{{ premium_product.title }}" class="packaging-main-image">
+      {% endif %}
+      <h4 class="packaging-title">{{ premium_product.title }}</h4>
+    </div>
+    
+
+  
+    <p id="variant-error" style="display: none; color: red; font-size: 13px; margin: 0 0 8px 0;">*Please select a variant</p>
+    <div class="custom-variant-dropdown">
+    <div class="selected-variant" id="selected-variant-display" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;">
+  <span class="placeholder-text">Select a variant</span>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+
+      
+      <div class="variant-options" id="variant-options">
+        {% for variant in premium_product.variants %}
+          <div class="variant-option" data-variant-id="{{ variant.id }}" data-variant-title="{{ variant.title }}" data-variant-price="{{ variant.price | money }}">
+            {% if variant.image %}
+              <img src="{{ variant.image | img_url: '50x50' }}" alt="{{ variant.title }}" class="variant-image">
+            {% elsif premium_product.featured_image %}
+              <img src="{{ premium_product.featured_image | img_url: '50x50' }}" alt="{{ variant.title }}" class="variant-image">
+            {% endif %}
+            <span class="variant-title">{{ variant.title }}</span>
+            <span class="variant-price">{{ variant.price | money }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endunless %}
